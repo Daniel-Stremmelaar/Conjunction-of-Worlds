@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject fireGiant;
     [SerializeField] private GameObject iceGiant;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private PlayerManager playerManager;
 
     public enum Enemies
     {
@@ -38,5 +39,6 @@ public class Spawner : MonoBehaviour
     {
         GameObject g = Instantiate(monsterToSpawn, spawnLocation);
         g.GetComponent<Enemy>().SetTarget(target);
+        g.GetComponent<Enemy>().SetPlayerManager(playerManager);
     }
 }

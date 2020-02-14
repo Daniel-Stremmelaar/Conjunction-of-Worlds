@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private int hitPoints;
+    [SerializeField] private int hitPoints;
 
     public virtual void LoseHP(int damageTaken)
     {
         hitPoints -= damageTaken;
         if (hitPoints <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public virtual void Death()
+    {
+        Destroy(gameObject);
     }
 
     public virtual void OnCollisionEnter(Collision collision)
